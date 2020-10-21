@@ -1,10 +1,12 @@
 import React from 'react';
+import Layout from './hoc/Layout/Layout';
+import Quiz from './containers/Quiz/Quiz'
 
 function App() {
   return (
-    <div className="App">
-      <h1>Movies quiz</h1>
-    </div>
+    <Layout>
+       <Quiz></Quiz>
+    </Layout>
   );
 }
 
