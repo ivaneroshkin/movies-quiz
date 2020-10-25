@@ -1,11 +1,14 @@
-import React from 'react'
-import classes from './ActiveQuiz.module.css'
-import AnswersList from '../AnswersList/AnswersList'
+import React from 'react';
+import classes from './ActiveQuiz.module.css';
+import AnswersList from '../AnswersList/AnswersList';
 
 interface ActiveQuizProps {
-  question: string,
-  answers: Array<any>,
-  onAnswerClick: any // TODO: Fix type
+  question: string;
+  answers: Array<any>;
+  answerNumber: number;
+  quizLength: number;
+  answerState: null | object;
+  onAnswerClick: any; // TODO: Fix type
 }
 
 const ActiveQuiz = (props: ActiveQuizProps) => {
@@ -14,20 +17,22 @@ const ActiveQuiz = (props: ActiveQuizProps) => {
       <p className={classes.Question}>
         <span>
           {/* TODO: Generate single question block */}
-          <strong>1.</strong>&nbsp;
+          <strong>{props.answerNumber}</strong>&nbsp;
           {props.question}
         </span>
 
-        <small>1/12</small>
+        <small>
+          {props.answerNumber}/{props.quizLength}
+        </small>
       </p>
 
-      <AnswersList 
+      <AnswersList
+        state={props.answerState}
         answers={props.answers}
         onAnswerClick={props.onAnswerClick}
       />
     </div>
   );
-}
+};
 
-export default ActiveQuiz
-
+export default ActiveQuiz;
