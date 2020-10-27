@@ -1,0 +1,16 @@
+.FinishedQuiz {
+  padding: 20px;
+  border: 2px solid #fff;
+  border-radius: 5px;
+  box-sizing: border-box;
+  margin: 0 10px;
+}
+
+.FinishedQuiz button:focus {
+  outline: 1px solid #fff;
+  outline-offset: -4px;
+}
+
+.FinishedQuiz button:active {
+  transform: scale(0.99);
+}
