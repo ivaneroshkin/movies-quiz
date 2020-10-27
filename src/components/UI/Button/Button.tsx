@@ -4,7 +4,7 @@ import classes from './Button.module.css';
 interface ButtonProps {
   type: string;
   onClick?: any;
-  children: string;
+  children: string | any;
   isDisabled?: any;
 }
 
