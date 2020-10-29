@@ -13,10 +13,9 @@ const MenuToggle = (props: MenuToggleProps) => {
     cls.push(classes.open);
   }
 
-  console.log(props.isOpen);
   return (
     <div className={cls.join(' ')} onClick={props.onToggle}>
-      <p>Menu</p>
+      {props.isOpen ? <div>←</div> : <div>Menu</div>}
     </div>
   );
 };

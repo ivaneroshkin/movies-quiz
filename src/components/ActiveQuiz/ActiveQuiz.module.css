@@ -1,15 +1,22 @@
 .ActiveQuiz {
+  height: 312px;
   padding: 20px;
-  border: 2px solid #ffffff;
-  border-radius: 5px;
-  margin: 0 10px;
+  border: 1px solid #ffffff;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: -6px -6px 25px 0 rgba(217, 210, 200, 0.5),
+    6px 6px 16px 0 rgba(217, 210, 200, 0.5);
+  margin: 0 15px;
   box-sizing: border-box;
 }
 
-.ActiveQuiz small{
-  padding: 10px;
-  border: 1px solid #ffffff;
-  border-radius: 5px;
+.ActiveQuiz small {
+  padding: 12px;
+  border: 1px solid fff;
+  background-color: #efeeee;
+  box-shadow: inset -3px -3px 25px 0 rgba(217, 210, 200, 0.5),
+    inset 6px 6px 6px 0 rgba(217, 210, 200, 0.5);
+  border-radius: 50px;
   margin-left: 15px;
 }
 

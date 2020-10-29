@@ -1,20 +1,25 @@
 .Drawer {
-  position: fixed;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 80%;
-  max-width: 300px;
-  padding: 20px 10px;
+  position: absolute;
+  display: block;
+  margin: 40px auto;
+  width: 680px;
+  height: 400px;
+  background-color: #efeeee;
+  border-radius: 12px;
+  border: solid 1px rgba(255, 255, 255, 0.2);
+  box-shadow: -6px -6px 25px 0 rgba(49, 48, 48, 0.83),
+    6px 6px 16px 0 rgba(3, 3, 3, 0.5);
+  padding: 20px 20px;
   box-sizing: border-box;
   background: #fff;
-  transform: translateX(0px);
-  transition: transform 0.22s ease-in;
+  transform: translateY(0px);
+  transition: transform 0.8s cubic-bezier(0.68, -0.6, 0.32, 1.6);
   z-index: 90;
 }
 
 .Drawer.close {
-  transform: translateX(-300px);
+  transform: translateY(-600px);
+  box-shadow: none;
 }
 
 .Drawer ul {

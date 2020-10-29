@@ -1,16 +1,26 @@
 .FinishedQuiz {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
   padding: 20px;
-  border: 2px solid #fff;
-  border-radius: 5px;
   box-sizing: border-box;
-  margin: 0 10px;
+  height: 312px;
+  border: 1px solid #ffffff;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: -6px -6px 25px 0 rgba(217, 210, 200, 0.5),
+    6px 6px 16px 0 rgba(217, 210, 200, 0.5);
+  margin: 0 15px;
+  box-sizing: border-box;
 }
 
-.FinishedQuiz button:focus {
-  outline: 1px solid #fff;
-  outline-offset: -4px;
+.FinishedQuiz h2 {
+  padding: 0;
+  margin: 0;
 }
 
-.FinishedQuiz button:active {
-  transform: scale(0.99);
+.FinishedQuiz p {
+  padding: 0;
+  margin: 0;
 }

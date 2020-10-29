@@ -1,17 +1,24 @@
 .Quiz {
   display: flex;
   justify-content: center;
-  padding-top: 100px;
+  padding-top: 40px;
   flex-grow: 1;
   width: 100%;
-  background: linear-gradient(0deg, #D9AFD9 0%, #97D9E1 100%);
+  background-color: #efeeee;
 }
 
 .Quiz h2 {
+  text-align: center;
   color: black;
   margin-left: 10px;
 }
 
 .QuizWrapper {
-  width: 600px;
+  width: 680px;
+  height: 400px;
+  background-color: #efeeee;
+  border-radius: 12px;
+  border: solid 1px rgba(255, 255, 255, 0.2);
+  box-shadow: -6px -6px 25px 0 rgba(255, 255, 255, 0.83),
+    6px 6px 16px 0 rgba(217, 210, 200, 0.5);
 }

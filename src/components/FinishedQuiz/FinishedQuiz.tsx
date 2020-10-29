@@ -20,16 +20,21 @@ const FinishedQuiz = (props: FinishedQuizProps) => {
 
   return (
     <div className={classes.FinishedQuiz}>
-      <h1>Well done!</h1>
+      {successCount === props.quiz.length ? (
+        <h2>Well done!</h2>
+      ) : (
+        <h2>Well, well, well...</h2>
+      )}
+
       <p>
         Right answers: {successCount}/{props.quiz.length}
       </p>
-      <Button onClick={props.onRetry} type="primary">
-        Retry
-      </Button>
-      <Button type="success">
-        Other quiz
-      </Button>
+      <div>
+        <Button onClick={props.onRetry} type="primary">
+          Retry
+        </Button>
+        <Button type="success">Other quiz</Button>
+      </div>
     </div>
   );
 };
