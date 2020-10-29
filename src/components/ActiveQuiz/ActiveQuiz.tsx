@@ -1,6 +1,7 @@
 import React from 'react';
 import classes from './ActiveQuiz.module.css';
 import AnswersList from '../AnswersList/AnswersList';
+import ActiveQuestion from '../ActiveQuestion/ActiveQuestion';
 
 interface ActiveQuizProps {
   question: string;
@@ -15,11 +16,7 @@ const ActiveQuiz = (props: ActiveQuizProps) => {
   return (
     <div className={classes.ActiveQuiz}>
       <p className={classes.Question}>
-        <span>
-          {/* TODO: Generate single question block */}
-          <strong>{props.answerNumber}</strong>&nbsp;
-          {props.question}
-        </span>
+        <ActiveQuestion question={props.question} />
 
         <small>
           {props.answerNumber}/{props.quizLength}
