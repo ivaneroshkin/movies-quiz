@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
 import classes from './Drawer.module.css';
 
 import Button from '../Button/Button';
@@ -8,23 +9,35 @@ interface DrawerProps {
   isOpen: boolean;
   onClose: any;
 }
-interface State {}
+interface DrawerState {}
 
-const links = [1, 2, 3];
+interface Link {
+  to: string;
+  label: string;
+  exact: boolean;
+}
 
-class Drawer extends Component<DrawerProps, State> {
+const links: Array<Link> = [
+  { to: '/', label: 'Quiz List', exact: true },
+  { to: '/auth', label: 'Auth', exact: false },
+  { to: '/quiz', label: 'Main Quiz', exact: false },
+];
+
+class Drawer extends Component<DrawerProps, DrawerState> {
   state = {};
-
-  linkToQuiz() {
-    console.log('Link to Quiz');
-  }
 
   renderLinks() {
     return links.map((link, index) => {
       return (
         <li key={index}>
-          <Button type="primary" onClick={this.linkToQuiz}>
-            Quiz - {link}
+          <Button type="primary" onClick={this.props.onClose}>
+            <NavLink
+              to={link.to}
+              exact={link.exact}
+              activeClassName={classes.active}
+            >
+              {link.label}
+            </NavLink>
           </Button>
         </li>
       );
