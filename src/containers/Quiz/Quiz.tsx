@@ -4,9 +4,14 @@ import classes from './Quiz.module.css';
 import ActiveQuiz from '../../components/ActiveQuiz/ActiveQuiz';
 import FinishedQuiz from '../../components/FinishedQuiz/FinishedQuiz';
 
-interface QuizProps {}
+import data from '../../data/data.json';
+
+interface QuizProps {
+  match: any;
+}
 
 interface QuizState {
+  title: string;
   results: any;
   isFinished: boolean;
   activeQuestion: number;
@@ -28,37 +33,7 @@ interface QuizState {
 // }
 
 class Quiz extends Component<QuizProps, QuizState> {
-  state = {
-    results: {},
-    isFinished: false,
-    activeQuestion: 0,
-    answerState: null,
-    quiz: [
-      {
-        id: 1,
-        question:
-          'Which US President gives Kevin McAllister directions in Home Alone 2?',
-        rightAnswerId: 3,
-        answers: [
-          { text: 'Bill Clinton', id: 1 },
-          { text: 'Barack Obama', id: 2 },
-          { text: 'Donald Trump', id: 3 },
-          { text: 'George W. Bush', id: 4 },
-        ],
-      },
-      {
-        id: 2,
-        question: 'Who directed Titanic, Avatar and The Terminator?',
-        rightAnswerId: 1,
-        answers: [
-          { text: 'James Cameron', id: 1 },
-          { text: 'Quentin Tarantino', id: 2 },
-          { text: 'Guy Ritchie', id: 3 },
-          { text: 'Stanley Kubrick', id: 4 },
-        ],
-      },
-    ],
-  };
+  state = data.quizzes[this.props.match.params.id - 1];
 
   onAnswerClickHandler = (answerId: number) => {
     const question: any = this.state.quiz[this.state.activeQuestion];
@@ -114,7 +89,7 @@ class Quiz extends Component<QuizProps, QuizState> {
     return (
       <div className={classes.Quiz}>
         <div className={classes.QuizWrapper}>
-          <h2>Movies Quiz</h2>
+          <h2>{this.state.title}</h2>
           {this.state.isFinished ? (
             <FinishedQuiz
               onRetry={this.retryHandler}

@@ -1,0 +1,205 @@
+{
+  "quizzes": [
+    {
+      "title": "Movies vol.1",
+      "results": {},
+      "isFinished": false,
+      "activeQuestion": 0,
+      "answerState": null,
+      "quiz": [
+        {
+          "id": 1,
+          "question":
+            "Which US President gives Kevin McAllister directions in Home Alone 2?",
+          "rightAnswerId": 3,
+          "answers": [
+            { "text": "Bill Clinton", "id": 1 },
+            { "text": "Barack Obama", "id": 2 },
+            { "text": "Donald Trump", "id": 3 },
+            { "text": "George W. Bush", "id": 4 }
+          ]
+        },
+        {
+          "id": 2,
+          "question": "Who directed Titanic, Avatar and The Terminator?",
+          "rightAnswerId": 1,
+          "answers": [
+            { "text": "James Cameron", "id": 1 },
+            { "text": "Quentin Tarantino", "id": 2 },
+            { "text": "Guy Ritchie", "id": 3 },
+            { "text": "Stanley Kubrick", "id": 4 }
+          ]
+        },
+        {
+          "id": 3,
+          "question":
+            "What year was the first Toy Story film released in cinemas?",
+          "rightAnswerId": 4,
+          "answers": [
+            { "text": "1992", "id": 1 },
+            { "text": "1993", "id": 2 },
+            { "text": "1994", "id": 3 },
+            { "text": "1995", "id": 4 }
+          ]
+        },
+        {
+          "id": 4,
+          "question":
+            "Which three films make up what is known as the Three Flavours Cornetto Trilogy?",
+          "rightAnswerId": 2,
+          "answers": [
+            { "text": "The Good, the Bad and the Ugly", "id": 1 },
+            { "text": "Shaun of the Dead, Hot Fuzz and The World’s End", "id": 2 },
+            { "text": "The Fellowship of the Ring, The Two Towers and The Return of the King (2003", "id": 3 },
+            { "text": "Batman Begins, The Dark Knight and The Dark Knight Rises", "id": 4 }
+          ]
+        },
+        {
+          "id": 5,
+          "question":
+            "Name the 2015 film spinoff to the Rocky series starring Michael B. Jordan?",
+          "rightAnswerId": 1,
+          "answers": [
+            { "text": "Creed", "id": 1 },
+            { "text": "Greek", "id": 2 },
+            { "text": "Rocky forewer", "id": 3 },
+            { "text": "Rocky legacy", "id": 4 }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Movies vol.2",
+      "results": {},
+      "isFinished": false,
+      "activeQuestion": 0,
+      "answerState": null,
+      "quiz": [
+        {
+          "id": 1,
+          "question":
+            "Which Alfred Hitchcock film starred Grace Kelly as Lisa Carol Fremont??",
+          "rightAnswerId": 4,
+          "answers": [
+            { "text": "Blackmail", "id": 1 },
+            { "text": "The Birds", "id": 2 },
+            { "text": "Psycho", "id": 3 },
+            { "text": "Rear Window", "id": 4 }
+          ]
+        },
+        {
+          "id": 2,
+          "question": "In the Coen Brothers film The Big Lebowski – what cocktail is the favourite of The Dude?",
+          "rightAnswerId": 3,
+          "answers": [
+            { "text": "A Black Russian", "id": 1 },
+            { "text": "Martini", "id": 2 },
+            { "text": "A White Russian", "id": 3 },
+            { "text": "Whiskey Sour", "id": 4 }
+          ]
+        },
+        {
+          "id": 3,
+          "question": "Which actor broke two toes whilst filming The Lord of the Rings: The Two Towers?",
+          "rightAnswerId": 1,
+          "answers": [
+            { "text": "Viggo Mortensen", "id": 1 },
+            { "text": "Elijah Wood", "id": 2 },
+            { "text": "John Rhys-Davies", "id": 3 },
+            { "text": "Christopher Lee ", "id": 4 }
+          ]
+        },
+        {
+          "id": 4,
+          "question": "What is the name of the second James Bond film?",
+          "rightAnswerId": 2,
+          "answers": [
+            { "text": "Goldfinger", "id": 1 },
+            { "text": "From Russia With Love", "id": 2 },
+            { "text": "Tomorrow Never Dies", "id": 3 },
+            { "text": "On Her Majesty's Secret Service", "id": 4 }
+          ]
+        },
+        {
+          "id": 5,
+          "question": "Which movie features an iconic dance scene between Uma Thurman and John Travolta?",
+          "rightAnswerId": 4,
+          "answers": [
+            { "text": "Face/Off", "id": 1 },
+            { "text": "Batman & Robin", "id": 2 },
+            { "text": "Swordfish", "id": 3 },
+            { "text": "Pulp Fiction", "id": 4 }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Star Wars",
+      "results": {},
+      "isFinished": false,
+      "activeQuestion": 0,
+      "answerState": null,
+      "quiz": [
+        {
+          "id": 1,
+          "question": "What did Luke Skywalker lose in his fight with Darth Vader?",
+          "rightAnswerId": 3,
+          "answers": [
+            { "text": "His left hand", "id": 1 },
+            { "text": "His nose", "id": 2 },
+            { "text": "His right hand", "id": 3 },
+            { "text": "His mind", "id": 4 }
+          ]
+        },
+        {
+          "id": 2,
+          "question":
+            "Where did the Clone Wars begin?",
+          "rightAnswerId": 2,
+          "answers": [
+            { "text": "Tatooine", "id": 1 },
+            { "text": "Geonosis", "id": 2 },
+            { "text": "Naboo", "id": 3 },
+            { "text": "Coruscant", "id": 4 }
+          ]
+        },
+        {
+          "id": 3,
+          "question":
+            "What is the color of C-3PO's arm in Star Wars: The Force Awakens?",
+          "rightAnswerId": 1,
+          "answers": [
+            { "text": "Red", "id": 1 },
+            { "text": "Golden", "id": 2 },
+            { "text": "Silver", "id": 3 },
+            { "text": "Midnight green", "id": 4 }
+          ]
+        },
+        {
+          "id": 4,
+          "question":
+            "How old was Anakin Skywalker during the battle on Genosis?",
+          "rightAnswerId": 2,
+          "answers": [
+            { "text": "19", "id": 1 },
+            { "text": "20", "id": 2 },
+            { "text": "21", "id": 3 },
+            { "text": "22", "id": 4 }
+          ]
+        },
+        {
+          "id": 5,
+          "question":
+            "In Indiana Jones and the Temple of Doom, which Star Wars character gets a namecheck?",
+          "rightAnswerId": 4,
+          "answers": [
+            { "text": "Han Solo", "id": 1 },
+            { "text": "Princess Leia", "id": 2 },
+            { "text": "Count Dooku", "id": 3 },
+            { "text": "Obi-Wan Kenobi", "id": 4 }
+          ]
+        }
+      ]
+    }
+  ]
+}
