@@ -45,3 +45,11 @@
 .primary {
   color: rgb(7, 79, 173);
 }
+
+.linked {
+  box-shadow: -9px -9px 10px 0 #d1cdc780, 9px 9px 10px 0 #d1cdc780;
+}
+
+.linked:hover {
+  box-shadow: -4px -4px 5px 0 #d1cdc780, 4px 4px 5px 0 #d1cdc780;
+}

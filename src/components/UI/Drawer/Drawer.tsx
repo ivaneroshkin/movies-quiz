@@ -20,7 +20,7 @@ interface Link {
 const links: Array<Link> = [
   { to: '/', label: 'Quiz List', exact: true },
   { to: '/auth', label: 'Auth', exact: false },
-  { to: '/quiz', label: 'Main Quiz', exact: false },
+  { to: '/quiz/1', label: 'Main Quiz', exact: false },
 ];
 
 class Drawer extends Component<DrawerProps, DrawerState> {
@@ -54,6 +54,7 @@ class Drawer extends Component<DrawerProps, DrawerState> {
     return (
       <>
         <nav className={cls.join(' ')}>
+          <h2>Menu</h2>
           <ul>{this.renderLinks()}</ul>
         </nav>
         {this.props.isOpen ? <Backdrop onClick={this.props.onClose} /> : null}

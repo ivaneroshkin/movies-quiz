@@ -22,3 +22,18 @@
   box-shadow: -6px -6px 25px 0 rgba(255, 255, 255, 0.83),
     6px 6px 16px 0 rgba(217, 210, 200, 0.5);
 }
+
+.QuizList ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 20px;
+}
+
+.QuizList ul li {
+  margin: 5px;
+}
+
+.QuizList ul li a {
+  color: #363d54;
+}
