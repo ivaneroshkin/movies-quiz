@@ -1,0 +1,50 @@
+.Input {
+  margin-bottom: 15px;
+}
+
+.Input label {
+  margin-left: 12px;
+  font-size: 12px;
+  margin-bottom: 3px;
+  padding: 0;
+  display: block;
+  font-weight: bold;
+  opacity: 0.4;
+}
+
+.Input input {
+  display: block;
+  box-sizing: border-box;
+  border-radius: 12px;
+  border: 1px solid #fff;
+  padding: 7px;
+  margin: 0 0 5px;
+  width: 100%;
+  outline: none;
+  transition: all 300ms ease-in-out;
+  box-shadow: -4px -4px 5px 0 #ffffff, 4px 4px 5px 0 #d1cdc780;
+}
+
+.Input input:focus {
+  border: 1px solid #d1cdc780;
+  box-shadow: -4px -4px 5px 0 #ffffff, 4px 4px 5px 0 #ffffff;
+  transition: all 0.5s ease-in-out;
+}
+
+.Input span {
+  display: block;
+  text-align: end;
+  margin-right: 12px;
+  color: #f01f30;
+  font-size: 10px;
+  font-weight: bold;
+  opacity: 0.4;
+}
+
+.Input.invalid {
+  margin-bottom: 3px;
+}
+
+.Input.invalid label {
+  color: #f01f30;
+}
