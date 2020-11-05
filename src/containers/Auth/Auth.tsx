@@ -6,6 +6,7 @@ import Input from '../../components/UI/Input/Input';
 
 interface AuthProps {}
 interface AuthState {
+  isFormValid: boolean;
   formControls: Array<any>;
 }
 
@@ -19,6 +20,7 @@ function validateEmail(email: string): boolean {
 }
 class Auth extends Component<AuthProps, AuthState> {
   state = {
+    isFormValid: false,
     formControls: [
       {
         value: '',
@@ -71,8 +73,8 @@ class Auth extends Component<AuthProps, AuthState> {
       isValid = validateEmail(value) && isValid;
     }
 
-    if (validation.minLenght) {
-      isValid = value.length >= validation.minLenght && isValid;
+    if (validation.minLength) {
+      isValid = value.length >= validation.minLength && isValid;
     }
 
     return isValid;
@@ -87,8 +89,15 @@ class Auth extends Component<AuthProps, AuthState> {
     control.valid = this.validateControl(control.value, control.validation);
 
     formControls[index] = control;
+    let isFormValid = true;
+
+    Object.keys(formControls).forEach((element : any) => {
+      isFormValid = formControls[element].valid && isFormValid;
+    })
+
     this.setState({
-      formControls,
+      isFormValid,
+      formControls
     });
   };
 
@@ -119,7 +128,7 @@ class Auth extends Component<AuthProps, AuthState> {
           <form onSubmit={this.submitHandler} className={classes.AuthForm}>
             {this.renderInputs()}
 
-            <Button type="success" onClick={this.loginHandler}>
+            <Button type="success" onClick={this.loginHandler} isDisabled={!this.state.isFormValid}>
               Login
             </Button>
 
