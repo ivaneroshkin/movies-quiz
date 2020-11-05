@@ -2,6 +2,9 @@ import React from 'react';
 import classes from './Input.module.css';
 
 interface InputProps {
+  shouldValidate?: boolean;
+  touched?: any;
+  valid?: any;
   label: string;
   type?: string;
   errorMessage?: string;
