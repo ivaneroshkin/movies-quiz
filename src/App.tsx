@@ -5,6 +5,7 @@ import Layout from './hoc/Layout/Layout';
 import Quiz from './containers/Quiz/Quiz';
 import QuizList from './containers/QuizList/QuizList';
 import Auth from './containers/Auth/Auth';
+import QuizCreator from './containers/QuizCreator/QuizCreator';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route exact path="/" component={QuizList} />
         <Route path="/auth" component={Auth} />
         <Route path="/quiz/:id" component={Quiz} />
+        <Route path="/creator" component={QuizCreator} />
       </Switch>
     </Layout>
   );

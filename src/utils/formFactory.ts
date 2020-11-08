@@ -1,4 +1,5 @@
 interface Config {
+  id?: number;
   label: string;
   errorMessage: string;
 }
@@ -15,7 +16,7 @@ export interface Control extends Config {
 }
 
 export interface Controls {
-  question: Control;
+  [question: string]: Control;
   option1: Control;
   option2: Control;
   option3: Control;
@@ -30,4 +31,37 @@ export function createControl(config: Config, validation: Validation): Control {
     touched: false,
     value: '',
   };
+}
+
+export function validate(value: any, validation: Validation | null): boolean {
+  if (!validation) {
+    return true;
+  }
+
+  let isValid = true;
+
+  if (validation.required) {
+    isValid = value.trim() !== '' && isValid;
+  }
+
+  return isValid;
+}
+
+export function validateForm(formControls: Controls) {
+  let isFormValid = true;
+
+  for (const control in formControls) {
+    if (formControls.hasOwnProperty(control)) {
+      isFormValid = formControls[control].valid && isFormValid;
+    }
+  }
+
+  return isFormValid;
+}
+
+export function getKeyByValue(object: Controls, value: Control): string {
+  const result = Object.keys(object).find(
+    (key) => object[key].label === value.label
+  );
+  return result !== undefined ? result : 'false';
 }

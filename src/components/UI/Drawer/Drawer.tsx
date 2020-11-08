@@ -21,6 +21,7 @@ const links: Array<Link> = [
   { to: '/', label: 'Quiz List', exact: true },
   { to: '/auth', label: 'Auth', exact: false },
   { to: '/quiz/1', label: 'Main Quiz', exact: false },
+  { to: '/creator', label: 'Quiz Creator', exact: false },
 ];
 
 class Drawer extends Component<DrawerProps, DrawerState> {
