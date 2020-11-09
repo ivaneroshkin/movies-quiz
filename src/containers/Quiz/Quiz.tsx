@@ -1,39 +1,44 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import classes from './Quiz.module.css';
 
 import ActiveQuiz from '../../components/ActiveQuiz/ActiveQuiz';
 import FinishedQuiz from '../../components/FinishedQuiz/FinishedQuiz';
+import Loader from '../../components/UI/Loader/Loader';
 
 import data from '../../data/data.json';
+import { createQuiz } from '../../utils/quizFactory';
 
 interface QuizProps {
   match: any;
 }
 
 interface QuizState {
+  loading: boolean;
   title: string;
   results: any;
   isFinished: boolean;
   activeQuestion: number;
-  quiz: Array<any>;
+  quiz: Array<Question>;
   answerState: null | object;
 }
 
-// interface ResultsObject {
-//   [key: string]: string
-// }
-
-// Todo: write interfate for state.quiz element
-//
-// interface QuestionObject {
-//   id: number,
-//   question: string,
-//   rigthAnswer: number,
-//   answers: any
-// }
+interface Question {
+  question: string;
+  id: number;
+  rightAnswerId: number;
+  answers: Array<Answer>;
+}
+interface Answer {
+  id: number;
+  text: string;
+}
 
 class Quiz extends Component<QuizProps, QuizState> {
-  state = data.quizzes[this.props.match.params.id - 1];
+  state = {
+    ...data.quizzes[this.props.match.params.id - 1],
+    loading: true,
+  };
 
   onAnswerClickHandler = (answerId: number) => {
     const question: any = this.state.quiz[this.state.activeQuestion];
@@ -85,12 +90,34 @@ class Quiz extends Component<QuizProps, QuizState> {
     });
   };
 
+  async componentDidMount() {
+    console.log('Quiz ID =', this.props.match.params.id);
+
+    try {
+      const response = await axios.get(
+        `https://movies-quiz-555.firebaseio.com/quizzes/${this.props.match.params.id}.json`
+      );
+      const newQuizFromDB: QuizState = createQuiz(response.data);
+
+      this.setState({
+        ...newQuizFromDB,
+      });
+    } catch (error) {
+      console.log(error);
+      this.setState({
+        loading: false,
+      });
+    }
+  }
+
   render() {
     return (
       <div className={classes.Quiz}>
         <div className={classes.QuizWrapper}>
           <h2>{this.state.title}</h2>
-          {this.state.isFinished ? (
+          {this.state.loading ? (
+            <Loader />
+          ) : this.state.isFinished ? (
             <FinishedQuiz
               onRetry={this.retryHandler}
               quiz={this.state.quiz}

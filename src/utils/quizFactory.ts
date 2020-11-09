@@ -1,11 +1,11 @@
-interface Question {
+export interface Question {
   question: string;
   id: number;
   rightAnswerId: number;
   answers: Array<Answer>
 }
 
-interface Answer {
+export interface Answer {
   id: number;
   text: string;
 }

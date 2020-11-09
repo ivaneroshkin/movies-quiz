@@ -1,5 +1,8 @@
 import React, { ChangeEvent, Component, FormEvent } from 'react';
+import axios from 'axios';
 import classes from './QuizCreator.module.css';
+
+import { Question } from '../../utils/quizFactory';
 import {
   Control,
   Controls,
@@ -18,7 +21,7 @@ interface QuizCreatorState {
   isFormValid: boolean;
   rightAnswerId?: number;
   formControls: Controls;
-  quiz: Array<any>;
+  quiz: Array<Question>;
 }
 
 function createOptionControl(number: number) {
@@ -99,10 +102,23 @@ class QuizCreator extends Component<QuizCreatorProps, QuizCreatorState> {
     });
   };
 
-  createQuizHandler = (event: Event) => {
+  createQuizHandler = async (event: Event) => {
     event.preventDefault();
-    console.log('Quiz array', this.state.quiz);
-    // TODO: Add new quiz in game
+
+    try {
+      await axios.post(
+        'https://movies-quiz-555.firebaseio.com/quizzes.json',
+        this.state.quiz
+      );
+      this.setState({
+        quiz: [],
+        isFormValid: false,
+        rightAnswerId: 1,
+        formControls: createFormControls(),
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   changeHandler = (value: string, control: Control) => {
