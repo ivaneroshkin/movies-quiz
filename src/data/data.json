@@ -9,8 +9,7 @@
       "quiz": [
         {
           "id": 1,
-          "question":
-            "Which US President gives Kevin McAllister directions in Home Alone 2?",
+          "question": "Which US President gives Kevin McAllister directions in Home Alone 2?",
           "rightAnswerId": 3,
           "answers": [
             { "text": "Bill Clinton", "id": 1 },
@@ -32,8 +31,7 @@
         },
         {
           "id": 3,
-          "question":
-            "What year was the first Toy Story film released in cinemas?",
+          "question": "What year was the first Toy Story film released in cinemas?",
           "rightAnswerId": 4,
           "answers": [
             { "text": "1992", "id": 1 },
@@ -44,20 +42,27 @@
         },
         {
           "id": 4,
-          "question":
-            "Which three films make up what is known as the Three Flavours Cornetto Trilogy?",
+          "question": "Which three films make up what is known as the Three Flavours Cornetto Trilogy?",
           "rightAnswerId": 2,
           "answers": [
             { "text": "The Good, the Bad and the Ugly", "id": 1 },
-            { "text": "Shaun of the Dead, Hot Fuzz and The World’s End", "id": 2 },
-            { "text": "The Fellowship of the Ring, The Two Towers and The Return of the King (2003", "id": 3 },
-            { "text": "Batman Begins, The Dark Knight and The Dark Knight Rises", "id": 4 }
+            {
+              "text": "Shaun of the Dead, Hot Fuzz and The World’s End",
+              "id": 2
+            },
+            {
+              "text": "The Fellowship of the Ring, The Two Towers and The Return of the King",
+              "id": 3
+            },
+            {
+              "text": "Batman Begins, The Dark Knight and The Dark Knight Rises",
+              "id": 4
+            }
           ]
         },
         {
           "id": 5,
-          "question":
-            "Name the 2015 film spinoff to the Rocky series starring Michael B. Jordan?",
+          "question": "Name the 2015 film spinoff to the Rocky series starring Michael B. Jordan?",
           "rightAnswerId": 1,
           "answers": [
             { "text": "Creed", "id": 1 },
@@ -77,8 +82,7 @@
       "quiz": [
         {
           "id": 1,
-          "question":
-            "Which Alfred Hitchcock film starred Grace Kelly as Lisa Carol Fremont??",
+          "question": "Which Alfred Hitchcock film starred Grace Kelly as Lisa Carol Fremont?",
           "rightAnswerId": 4,
           "answers": [
             { "text": "Blackmail", "id": 1 },
@@ -153,8 +157,7 @@
         },
         {
           "id": 2,
-          "question":
-            "Where did the Clone Wars begin?",
+          "question": "Where did the Clone Wars begin?",
           "rightAnswerId": 2,
           "answers": [
             { "text": "Tatooine", "id": 1 },
@@ -165,8 +168,7 @@
         },
         {
           "id": 3,
-          "question":
-            "What is the color of C-3PO's arm in Star Wars: The Force Awakens?",
+          "question": "What is the color of C-3PO's arm in Star Wars: The Force Awakens?",
           "rightAnswerId": 1,
           "answers": [
             { "text": "Red", "id": 1 },
@@ -177,8 +179,7 @@
         },
         {
           "id": 4,
-          "question":
-            "How old was Anakin Skywalker during the battle on Genosis?",
+          "question": "How old was Anakin Skywalker during the battle on Genosis?",
           "rightAnswerId": 2,
           "answers": [
             { "text": "19", "id": 1 },
@@ -189,8 +190,7 @@
         },
         {
           "id": 5,
-          "question":
-            "In Indiana Jones and the Temple of Doom, which Star Wars character gets a namecheck?",
+          "question": "In Indiana Jones and the Temple of Doom, which Star Wars character gets a namecheck?",
           "rightAnswerId": 4,
           "answers": [
             { "text": "Han Solo", "id": 1 },
