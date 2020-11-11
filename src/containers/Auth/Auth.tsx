@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import classes from './Auth.module.css';
 
 import Button from '../../components/UI/Button/Button';
@@ -49,12 +50,45 @@ class Auth extends Component<AuthProps, AuthState> {
     ],
   };
 
-  loginHandler = () => {};
+  // TODO: Update loginHandler and registerHandler, display successful or error human-friendly alert and route user to another page
 
-  registerHandler = () => {};
+  loginHandler = async () => {
+    const authData = {
+      email: this.state.formControls[0].value,
+      password: this.state.formControls[1].value,
+      returnSecureToken: true,
+    };
+
+    try {
+      const response = await axios.post(
+        'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCG37Ok9Hk-rZEJ8nMo3kO-eKhtaDzJQn8',
+        authData
+      );
+      console.log('login response:', response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  registerHandler = async () => {
+    const authData = {
+      email: this.state.formControls[0].value,
+      password: this.state.formControls[1].value,
+      returnSecureToken: true,
+    };
+
+    try {
+      const response = await axios.post(
+        'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCG37Ok9Hk-rZEJ8nMo3kO-eKhtaDzJQn8',
+        authData
+      );
+      console.log('register response:', response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   submitHandler = (event: any) => {
-    console.log('event', event);
     event.preventDefault();
   };
 
@@ -91,13 +125,13 @@ class Auth extends Component<AuthProps, AuthState> {
     formControls[index] = control;
     let isFormValid = true;
 
-    Object.keys(formControls).forEach((element : any) => {
+    Object.keys(formControls).forEach((element: any) => {
       isFormValid = formControls[element].valid && isFormValid;
-    })
+    });
 
     this.setState({
       isFormValid,
-      formControls
+      formControls,
     });
   };
 
@@ -128,7 +162,11 @@ class Auth extends Component<AuthProps, AuthState> {
           <form onSubmit={this.submitHandler} className={classes.AuthForm}>
             {this.renderInputs()}
 
-            <Button type="success" onClick={this.loginHandler} isDisabled={!this.state.isFormValid}>
+            <Button
+              type="success"
+              onClick={this.loginHandler}
+              isDisabled={!this.state.isFormValid}
+            >
               Login
             </Button>
 
