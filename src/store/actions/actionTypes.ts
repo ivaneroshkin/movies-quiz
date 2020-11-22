@@ -1,0 +1,3 @@
+export const FETCH_QUIZZES_START: string = 'FETCH_QUIZZES_START';
+export const FETCH_QUIZZES_SUCCESS: string = 'FETCH_QUIZZES_SUCCESS';
+export const FETCH_QUIZZES_ERROR: string = 'FETCH_QUIZZES_ERROR';
