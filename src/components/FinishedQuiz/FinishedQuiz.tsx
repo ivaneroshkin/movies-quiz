@@ -7,7 +7,7 @@ import Button from '../UI/Button/Button';
 interface FinishedQuizProps {
   onRetry: any;
   results: any;
-  quiz: Array<any>;
+  quiz: any;
 }
 
 const FinishedQuiz = (props: FinishedQuizProps) => {
@@ -22,14 +22,14 @@ const FinishedQuiz = (props: FinishedQuizProps) => {
 
   return (
     <div className={classes.FinishedQuiz}>
-      {successCount === props.quiz.length ? (
+      {successCount === props.quiz.quiz.length ? (
         <h2>Well done!</h2>
       ) : (
         <h2>Well, well, well...</h2>
       )}
 
       <p>
-        Right answers: {successCount}/{props.quiz.length}
+        Right answers: {successCount}/{props.quiz.quiz.length}
       </p>
       <div>
         <Button onClick={props.onRetry} type="primary">
