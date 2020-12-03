@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { connect } from 'react-redux';
 import classes from './Auth.module.css';
 
 import Button from '../../components/UI/Button/Button';
 import Input from '../../components/UI/Input/Input';
+import { auth } from '../../store/actions/auth';
 
-interface AuthProps {}
+interface AuthProps {
+  auth: any;
+}
 interface AuthState {
   isFormValid: boolean;
   formControls: Array<any>;
@@ -52,40 +56,51 @@ class Auth extends Component<AuthProps, AuthState> {
 
   // TODO: Update loginHandler and registerHandler, display successful or error human-friendly alert and route user to another page
 
-  loginHandler = async () => {
-    const authData = {
-      email: this.state.formControls[0].value,
-      password: this.state.formControls[1].value,
-      returnSecureToken: true,
-    };
+  loginHandler = () => {
+    this.props.auth(
+      this.state.formControls[0].value,
+      this.state.formControls[1].value,
+      true
+    );
 
-    try {
-      const response = await axios.post(
-        'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCG37Ok9Hk-rZEJ8nMo3kO-eKhtaDzJQn8',
-        authData
-      );
-      console.log('login response:', response.data);
-    } catch (error) {
-      console.log(error);
-    }
+    // const authData = {
+    //   email: this.state.formControls[0].value,
+    //   password: this.state.formControls[1].value,
+    //   returnSecureToken: true,
+    // };
+
+    // try {
+    //   const response = await axios.post(
+    //     'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCG37Ok9Hk-rZEJ8nMo3kO-eKhtaDzJQn8',
+    //     authData
+    //   );
+    //   console.log('login response:', response.data);
+    // } catch (error) {
+    //   console.log(error);
+    // }
   };
 
-  registerHandler = async () => {
-    const authData = {
-      email: this.state.formControls[0].value,
-      password: this.state.formControls[1].value,
-      returnSecureToken: true,
-    };
+  registerHandler = () => {
+    this.props.auth(
+      this.state.formControls[0].value,
+      this.state.formControls[1].value,
+      false
+    );
+    // const authData = {
+    //   email: this.state.formControls[0].value,
+    //   password: this.state.formControls[1].value,
+    //   returnSecureToken: true,
+    // };
 
-    try {
-      const response = await axios.post(
-        'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCG37Ok9Hk-rZEJ8nMo3kO-eKhtaDzJQn8',
-        authData
-      );
-      console.log('register response:', response.data);
-    } catch (error) {
-      console.log(error);
-    }
+    // try {
+    //   const response = await axios.post(
+    //     'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCG37Ok9Hk-rZEJ8nMo3kO-eKhtaDzJQn8',
+    //     authData
+    //   );
+    //   console.log('register response:', response.data);
+    // } catch (error) {
+    //   console.log(error);
+    // }
   };
 
   submitHandler = (event: any) => {
@@ -180,4 +195,11 @@ class Auth extends Component<AuthProps, AuthState> {
   }
 }
 
-export default Auth;
+function mapDispatchToProps(dispatch: any) {
+  return {
+    auth: (email: any, password: any, isLogin: boolean) =>
+      dispatch(auth(email, password, isLogin)),
+  };
+}
+
+export default connect(null, mapDispatchToProps)(Auth);
