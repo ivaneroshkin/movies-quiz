@@ -42,6 +42,26 @@ export function autoLogout(time: any) {
   };
 }
 
+export function autoLogin() {
+  return (dispatch: any) => {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      dispatch(logout());
+    } else {
+      const dateFromLocalStorage: any = localStorage.getItem('expirationDate');
+      const expirationDate: any = new Date(dateFromLocalStorage);
+      if (expirationDate <= new Date()) {
+        dispatch(logout());
+      } else {
+        dispatch(authSuccess(token));
+        dispatch(
+          autoLogout((expirationDate.getTime() - new Date().getTime()) / 1000)
+        );
+      }
+    }
+  };
+}
+
 export function authSuccess(token: any) {
   return {
     type: AUTH_SUCCESS,

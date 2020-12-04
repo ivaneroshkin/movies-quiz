@@ -6,6 +6,7 @@ import Button from '../Button/Button';
 import Backdrop from '../Backdrop/Backdrop';
 
 interface DrawerProps {
+  isAuthenticated: boolean;
   isOpen: boolean;
   onClose: any;
 }
@@ -17,17 +18,10 @@ interface Link {
   exact: boolean;
 }
 
-const links: Array<Link> = [
-  { to: '/', label: 'Quiz List', exact: true },
-  { to: '/auth', label: 'Auth', exact: false },
-  { to: '/quiz/1', label: 'Main Quiz', exact: false },
-  { to: '/creator', label: 'Quiz Creator', exact: false },
-];
-
 class Drawer extends Component<DrawerProps, DrawerState> {
   state = {};
 
-  renderLinks() {
+  renderLinks(links: Array<Link>) {
     return links.map((link, index) => {
       return (
         <li key={index}>
@@ -52,11 +46,25 @@ class Drawer extends Component<DrawerProps, DrawerState> {
       cls.push(classes.close);
     }
 
+    const links: Array<Link> = [
+      { to: '/', label: 'Quiz List', exact: true },
+      { to: '/quiz/1', label: 'Main Quiz', exact: false },
+    ];
+
+    if (this.props.isAuthenticated) {
+      links.push(
+        { to: '/creator', label: 'Quiz Creator', exact: false },
+        { to: '/logout', label: 'Logout', exact: false }
+      );
+    } else {
+      links.push({ to: '/auth', label: 'Auth', exact: false });
+    }
+
     return (
       <>
         <nav className={cls.join(' ')}>
           <h2>Menu</h2>
-          <ul>{this.renderLinks()}</ul>
+          <ul>{this.renderLinks(links)}</ul>
         </nav>
         {this.props.isOpen ? <Backdrop onClick={this.props.onClose} /> : null}
       </>
