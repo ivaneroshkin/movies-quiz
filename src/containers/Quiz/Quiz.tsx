@@ -158,8 +158,8 @@ class Quiz extends Component<QuizProps, QuizState> {
               answers={this.props.quiz.quiz[this.props.activeQuestion].answers}
               onAnswerClick={this.props.quizAnswerClick}
               quizLength={this.props.quiz.quiz.length}
-              answerNumber={this.props.quiz.activeQuestion + 1}
-              answerState={this.props.quiz.answerState}
+              answerNumber={this.props.activeQuestion + 1}
+              answerState={this.props.answerState}
             />
           )}
         </div>
