@@ -1,14 +1,10 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import { connect } from 'react-redux';
 
 import classes from './Quiz.module.css';
 import ActiveQuiz from '../../components/ActiveQuiz/ActiveQuiz';
 import FinishedQuiz from '../../components/FinishedQuiz/FinishedQuiz';
 import Loader from '../../components/UI/Loader/Loader';
-
-import data from '../../data/data.json';
-import { createQuiz } from '../../utils/quizFactory';
 
 import {
   fetchQuizById,
@@ -53,81 +49,8 @@ interface Answer {
 }
 
 class Quiz extends Component<QuizProps, QuizState> {
-  // state = {
-  //   ...data.quizzes[this.props.match.params.id - 1],
-  //   loading: true,
-  // };
-
-  // onAnswerClickHandler = (answerId: number) => {
-  // const question: any = this.state.quiz[this.state.activeQuestion];
-  // const results: any = this.state.results;
-
-  // if (question.rightAnswerId === answerId) {
-  //   if (!results[this.state.activeQuestion]) {
-  //     results[this.state.activeQuestion] = 'success';
-  //   }
-
-  //   this.setState({
-  //     answerState: { [answerId]: 'success' },
-  //     results,
-  //   });
-
-  //   // Checked next answer and styled AnswerItem component
-  //   const timeout = window.setTimeout(() => {
-  //     if (this.isQuizFinished()) {
-  //       this.setState({
-  //         isFinished: true,
-  //       });
-  //     } else {
-  //       this.setState({
-  //         answerState: null,
-  //         activeQuestion: this.state.activeQuestion + 1,
-  //       });
-  //     }
-  //     window.clearTimeout(timeout);
-  //   }, 1000);
-  // } else {
-  //   results[this.state.activeQuestion] = 'error';
-  //   this.setState({
-  //     answerState: { [answerId]: 'error' },
-  //     results,
-  //   });
-  // }
-  // };
-
-  // isQuizFinished = () => {
-  //   return this.state.activeQuestion + 1 === this.state.quiz.length;
-  // };
-
-  // retryHandler = () => {
-  //   this.setState({
-  //     results: {},
-  //     isFinished: false,
-  //     activeQuestion: 0,
-  //     answerState: null,
-  //   });
-  // };
-
   componentDidMount() {
-    console.log('componentDidMount', this.props);
     this.props.fetchQuizById(this.props.match.params.id);
-    // console.log('Quiz ID =', this.props.match.params.id);
-
-    // try {
-    //   const response = await axios.get(
-    //     `https://movies-quiz-555.firebaseio.com/quizzes/${this.props.match.params.id}.json`
-    //   );
-    //   const newQuizFromDB: QuizState = createQuiz(response.data);
-
-    //   this.setState({
-    //     ...newQuizFromDB,
-    //   });
-    // } catch (error) {
-    //   console.log(error);
-    //   this.setState({
-    //     loading: false,
-    //   });
-    // }
   }
 
   componentWillUnmount() {

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
-// import axios from 'axios';
 import { fetchQuizzes } from '../../store/actions/quiz';
 
 import classes from './QuizList.module.css';
@@ -26,16 +25,6 @@ interface Link {
 }
 
 class QuizList extends Component<QuizListProps, QuizListState> {
-  // state = {
-  //   loading: true,
-  //   quizzes: [],
-  //   linksList: [
-  //     { id: 1, theme: 'Movies vol.1' },
-  //     { id: 2, theme: 'Movies vol.2' },
-  //     { id: 3, theme: 'Star wars' },
-  //   ],
-  // };
-
   renderQuizes() {
     let allQuizzesLinks = this.props.quizzes.length
       ? [...this.props.linksList, ...this.props.quizzes]
@@ -54,27 +43,6 @@ class QuizList extends Component<QuizListProps, QuizListState> {
 
   componentDidMount() {
     this.props.fetchQuizzes();
-
-    // try {
-    //   const quizzes: Array<Link> = [];
-    //   const response = await axios.get(
-    //     'https://movies-quiz-555.firebaseio.com/quizzes.json'
-    //   );
-
-    //   Object.keys(response.data).forEach((key, index) => {
-    //     quizzes.push({
-    //       id: key,
-    //       theme: `Test quiz ${index + 1}`,
-    //     });
-    //   });
-
-    //   this.setState({
-    //     quizzes,
-    //     loading: false,
-    //   });
-    // } catch (error) {
-    //   console.log(error);
-    // }
   }
 
   render() {

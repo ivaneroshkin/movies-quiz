@@ -10,7 +10,7 @@ import {
 } from '../actions/actionTypes';
 
 const initialState = {
-  loading: false, // old value true
+  loading: false,
   quizzes: [],
   linksList: [
     { id: 1, theme: 'Movies vol.1' },
@@ -18,12 +18,11 @@ const initialState = {
     { id: 3, theme: 'Star wars' },
   ],
   error: null,
-  results: {}, // start quiz changes
+  results: {},
   isFinished: false,
   activeQuestion: 0,
   answerState: null,
   quiz: null,
-  // ...data.quizzes[this.props.match.params.id - 1],
 };
 
 export default function quizReducer(state = initialState, action: any) {

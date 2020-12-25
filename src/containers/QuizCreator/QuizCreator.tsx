@@ -1,5 +1,4 @@
 import React, { ChangeEvent, Component, FormEvent } from 'react';
-import axios from 'axios';
 import { connect } from 'react-redux';
 import classes from './QuizCreator.module.css';
 
@@ -7,7 +6,6 @@ import {
   createQuizQuestion,
   finishCreateQuiz,
 } from '../../store/actions/create';
-import { Question } from '../../utils/quizFactory';
 import {
   Control,
   Controls,
@@ -30,7 +28,6 @@ interface QuizCreatorState {
   isFormValid: boolean;
   rightAnswerId?: number;
   formControls: Controls;
-  // quiz: Array<Question>;
 }
 
 function createOptionControl(number: number) {

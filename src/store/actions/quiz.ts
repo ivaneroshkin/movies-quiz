@@ -56,15 +56,8 @@ export function fetchQuizzes() {
           theme: `Test quiz ${index + 1}`,
         });
       });
-
-      // this.setState({
-      //   quizzes,
-      //   loading: false,
-      // });
-
       dispatch(fetchQuizzesSuccess(quizzes));
     } catch (error) {
-      // console.log(error);
       dispatch(fetchQuizzesError(error));
     }
   };
@@ -106,9 +99,6 @@ export function fetchQuizById(quizId: any) {
           `https://movies-quiz-555.firebaseio.com/quizzes/${quizId}.json`
         );
         const newQuizFromDB: QuizState = createQuiz(response.data);
-        // this.setState({
-        //   ...newQuizFromDB,
-        // });
         dispatch(fetchQuizSuccess(newQuizFromDB));
       } catch (error) {
         console.log(error);
@@ -140,37 +130,18 @@ export function quizAnswerClick(answerId: any) {
       }
       dispatch(quizSetState({ [answerId]: 'success' }, results));
 
-      // this.setState({
-      //   answerState: { [answerId]: 'success' },
-      //   results,
-      // });
-
       // Checked next answer and styled AnswerItem component
       const timeout = window.setTimeout(() => {
         if (isQuizFinished(state)) {
           dispatch(finishQuiz());
-
-          // this.setState({
-          //   isFinished: true,
-          // });
         } else {
           dispatch(quizNextQuestion(state.activeQuestion + 1));
-
-          // this.setState({
-          //   answerState: null,
-          //   activeQuestion: this.state.activeQuestion + 1,
-          // });
         }
         window.clearTimeout(timeout);
       }, 1000);
     } else {
       results[state.activeQuestion] = 'error';
       dispatch(quizSetState({ [answerId]: 'error' }, results));
-
-      // this.setState({
-      //   answerState: { [answerId]: 'error' },
-      //   results,
-      // });
     }
   };
 }
