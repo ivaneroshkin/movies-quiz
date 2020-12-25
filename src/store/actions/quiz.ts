@@ -132,7 +132,7 @@ export function quizAnswerClick(answerId: any) {
 
     console.log('new state', state);
     const question: any = state.quiz.quiz[state.activeQuestion];
-    const results: any = state.quiz.results; // added quiz
+    const results: any = state.results;
 
     if (question.rightAnswerId === answerId) {
       if (!results[state.activeQuestion]) {
@@ -175,7 +175,7 @@ export function quizAnswerClick(answerId: any) {
   };
 }
 
-export function quizSetState(answerState: any, results: any) {
+export function quizSetState(answerState: object, results: object) {
   return {
     type: QUIZ_SET_STATE,
     answerState,

@@ -11,14 +11,15 @@ interface FinishedQuizProps {
 }
 
 const FinishedQuiz = (props: FinishedQuizProps) => {
-  console.log('Correct answers', props.results);
-
-  const successCount: any = Object.keys(props.results).reduce((total, key) => {
-    if (props.results[key] === 'success') {
-      total++;
-    }
-    return total;
-  }, 0);
+  const successCount: number = Object.keys(props.results).reduce(
+    (total, key) => {
+      if (props.results[key] === 'success') {
+        total++;
+      }
+      return total;
+    },
+    0
+  );
 
   return (
     <div className={classes.FinishedQuiz}>
