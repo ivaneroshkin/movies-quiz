@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Dispatch } from 'react';
 import { connect } from 'react-redux';
 
 import classes from './Quiz.module.css';
@@ -12,18 +12,32 @@ import {
   retryQuiz,
 } from '../../store/actions/quiz';
 
+import { IQuiz } from '../../components/FinishedQuiz/FinishedQuiz';
+import { IRootState } from '../../App';
+
 interface QuizProps {
-  match: any;
-  fetchQuizById: any;
+  match: IMatch;
+  fetchQuizById: (id: string) => void;
   loading: boolean;
   isFinished: boolean;
   results: any;
   activeQuestion: number;
   title: string;
   answerState: null | object;
-  quiz: any;
-  quizAnswerClick: any;
-  retryQuiz: any;
+  quiz: IQuiz;
+  quizAnswerClick: (answerId: number) => void;
+  retryQuiz: () => void;
+}
+
+interface IMatch {
+  isExact: boolean;
+  params: IParam;
+  path: string;
+  url: string;
+}
+
+interface IParam {
+  id: string;
 }
 
 interface QuizState {
@@ -58,7 +72,6 @@ class Quiz extends Component<QuizProps, QuizState> {
   }
 
   render() {
-    console.log('component render with props:', this.props);
     return (
       <div className={classes.Quiz}>
         <div className={classes.QuizWrapper}>
@@ -91,7 +104,7 @@ class Quiz extends Component<QuizProps, QuizState> {
   }
 }
 
-function mapStateToProps(state: any) {
+function mapStateToProps(state: IRootState) {
   return {
     results: state.quiz.results,
     isFinished: state.quiz.isFinished,
@@ -102,10 +115,10 @@ function mapStateToProps(state: any) {
   };
 }
 
-function mapDispatchToProps(dispatch: any) {
+function mapDispatchToProps(dispatch: Dispatch<any>) {
   return {
     fetchQuizById: (id: any) => dispatch(fetchQuizById(id)),
-    quizAnswerClick: (answerId: any) => dispatch(quizAnswerClick(answerId)),
+    quizAnswerClick: (answerId: number) => dispatch(quizAnswerClick(answerId)),
     retryQuiz: () => dispatch(retryQuiz()),
   };
 }

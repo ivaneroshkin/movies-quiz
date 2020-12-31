@@ -3,16 +3,16 @@ import classes from './Input.module.css';
 
 interface InputProps {
   shouldValidate?: boolean;
-  touched?: any;
-  valid?: any;
+  touched?: boolean;
+  valid?: boolean;
   label: string;
   type?: string;
   errorMessage?: string;
-  value?: any;
-  onChange?: any;
+  value?: string;
+  onChange?: (e: React.FormEvent<HTMLInputElement>) => void;
 }
 
-function isInvalid({ valid, touched, shouldValidate }: any) {
+function isInvalid({ valid, touched, shouldValidate }: InputProps) {
   return !valid && shouldValidate && touched;
 }
 

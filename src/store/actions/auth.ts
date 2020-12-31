@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { AUTH_LOGOUT, AUTH_SUCCESS } from './actionTypes';
 
-export function auth(email: any, password: any, isLogin: boolean) {
+export function auth(email: string, password: string, isLogin: boolean) {
   return async (dispatch: any) => {
     const authData = {
       email,
@@ -21,20 +21,20 @@ export function auth(email: any, password: any, isLogin: boolean) {
 
     const data = response.data;
 
-    const expirationDate: any = new Date(
+    const expirationDate: Date = new Date(
       new Date().getTime() + data.expiresIn * 1000
     );
 
     localStorage.setItem('token', data.idToken);
     localStorage.setItem('userId', data.localId);
-    localStorage.setItem('expirationDate', expirationDate);
+    localStorage.setItem('expirationDate', expirationDate.toDateString());
 
     dispatch(authSuccess(data.idToken));
     dispatch(autoLogout(data.expiresIn));
   };
 }
 
-export function autoLogout(time: any) {
+export function autoLogout(time: number) {
   return (dispatch: any) => {
     setTimeout(() => {
       dispatch(logout());
@@ -49,7 +49,7 @@ export function autoLogin() {
       dispatch(logout());
     } else {
       const dateFromLocalStorage: any = localStorage.getItem('expirationDate');
-      const expirationDate: any = new Date(dateFromLocalStorage);
+      const expirationDate: Date = new Date(dateFromLocalStorage);
       if (expirationDate <= new Date()) {
         dispatch(logout());
       } else {
@@ -62,7 +62,7 @@ export function autoLogin() {
   };
 }
 
-export function authSuccess(token: any) {
+export function authSuccess(token: string) {
   return {
     type: AUTH_SUCCESS,
     token,

@@ -3,13 +3,14 @@ import classes from './ActiveQuiz.module.css';
 import AnswersList from '../AnswersList/AnswersList';
 import ActiveQuestion from '../ActiveQuestion/ActiveQuestion';
 
+import { Answer } from '../AnswerItem/AnswerItem';
 interface ActiveQuizProps {
   question: string;
-  answers: Array<any>;
+  answers: Array<Answer>;
   answerNumber: number;
   quizLength: number;
   answerState: null | object;
-  onAnswerClick: any; // TODO: Fix type
+  onAnswerClick: (answerId: number) => void;
 }
 
 const ActiveQuiz = (props: ActiveQuizProps) => {

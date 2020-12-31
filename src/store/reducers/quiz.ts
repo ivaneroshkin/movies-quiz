@@ -9,6 +9,8 @@ import {
   QUIZ_RETRY,
 } from '../actions/actionTypes';
 
+import { IQuiz } from '../../components/FinishedQuiz/FinishedQuiz';
+
 const initialState = {
   loading: false,
   quizzes: [],
@@ -25,7 +27,22 @@ const initialState = {
   quiz: null,
 };
 
-export default function quizReducer(state = initialState, action: any) {
+interface IAction {
+  type: string;
+  quiz?: IQuiz;
+  quizzes?: Array<IQuizFromDB>;
+  error?: any;
+  results?: object;
+  number?: number;
+  answerState?: object;
+}
+
+interface IQuizFromDB {
+  id: string;
+  theme: string;
+}
+
+export default function quizReducer(state = initialState, action: IAction) {
   switch (action.type) {
     case FETCH_QUIZZES_START:
       return {

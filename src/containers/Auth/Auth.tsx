@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Dispatch } from 'react';
 import { connect } from 'react-redux';
 import classes from './Auth.module.css';
 
@@ -7,11 +7,17 @@ import Input from '../../components/UI/Input/Input';
 import { auth } from '../../store/actions/auth';
 
 interface AuthProps {
-  auth: any;
+  auth: (email: string, password: string, isLogin: boolean) => void;
 }
 interface AuthState {
   isFormValid: boolean;
   formControls: Array<any>;
+}
+
+interface IValidation {
+  required: boolean;
+  email?: boolean;
+  minLength?: number;
 }
 
 type eventType = {
@@ -71,11 +77,11 @@ class Auth extends Component<AuthProps, AuthState> {
     );
   };
 
-  submitHandler = (event: any) => {
+  submitHandler = (event: React.FormEvent) => {
     event.preventDefault();
   };
 
-  validateControl = (value: string, validation: any): boolean => {
+  validateControl = (value: string, validation: IValidation): boolean => {
     if (!validation) {
       return true;
     }
@@ -163,9 +169,9 @@ class Auth extends Component<AuthProps, AuthState> {
   }
 }
 
-function mapDispatchToProps(dispatch: any) {
+function mapDispatchToProps(dispatch: Dispatch<any>) {
   return {
-    auth: (email: any, password: any, isLogin: boolean) =>
+    auth: (email: string, password: string, isLogin: boolean) =>
       dispatch(auth(email, password, isLogin)),
   };
 }

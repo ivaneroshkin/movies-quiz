@@ -33,7 +33,10 @@ export function createControl(config: Config, validation: Validation): Control {
   };
 }
 
-export function validate(value: any, validation: Validation | null): boolean {
+export function validate(
+  value: string,
+  validation: Validation | null
+): boolean {
   if (!validation) {
     return true;
   }

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { CREATE_QUIZ_QUESTION, RESET_QUIZ_CREATION } from './actionTypes';
 
-export function createQuizQuestion(item: any) {
+export function createQuizQuestion(item: object) {
   return {
     type: CREATE_QUIZ_QUESTION,
     item,

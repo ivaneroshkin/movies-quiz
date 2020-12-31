@@ -69,7 +69,7 @@ export function fetchQuizzesStart() {
   };
 }
 
-export function fetchQuizzesSuccess(quizzes: any) {
+export function fetchQuizzesSuccess(quizzes: Array<Link>) {
   return {
     type: FETCH_QUIZZES_SUCCESS,
     quizzes,
@@ -115,13 +115,12 @@ export function fetchQuizSuccess(quiz: any) {
   };
 }
 
-export function quizAnswerClick(answerId: any) {
+export function quizAnswerClick(answerId: number) {
   return (dispatch: any, getState: any) => {
     // from thunk
     const state = getState().quiz;
 
-    console.log('new state', state);
-    const question: any = state.quiz.quiz[state.activeQuestion];
+    const question: Question = state.quiz.quiz[state.activeQuestion];
     const results: any = state.results;
 
     if (question.rightAnswerId === answerId) {

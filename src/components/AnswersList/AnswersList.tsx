@@ -2,10 +2,11 @@ import React from 'react';
 import classes from './AnswersList.module.css';
 import AnswerItem from '../AnswerItem/AnswerItem';
 
+import { Answer } from '../AnswerItem/AnswerItem';
 interface AnswersListProps {
   state: null | any;
-  answers: Array<any>;
-  onAnswerClick: any;
+  answers: Array<Answer>;
+  onAnswerClick: (answerId: number) => void;
 }
 
 const AnswersList = (props: AnswersListProps) => (

@@ -11,8 +11,6 @@ export interface Answer {
 }
 
 export function createQuiz(questions: Array<Question>) {
-  console.log('createQuiz:', questions);
-
   return {
     title: 'Created Quiz',
     results: {},

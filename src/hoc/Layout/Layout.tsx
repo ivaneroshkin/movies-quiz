@@ -3,10 +3,11 @@ import classes from './Layout.module.css';
 import MenuToggle from '../../components/UI/MenuToggle/MenuToggle';
 import Drawer from '../../components/UI/Drawer/Drawer';
 import { connect } from 'react-redux';
+import { IRootState } from '../../App';
 
 interface LayoutProps {
   isAuthenticated: boolean;
-  children: any;
+  children: React.ReactChild;
 }
 interface LayoutState {
   menu: boolean;
@@ -47,7 +48,7 @@ class Layout extends Component<LayoutProps, LayoutState> {
   }
 }
 
-function mapStateToProps(state: any) {
+function mapStateToProps(state: IRootState) {
   return {
     isAuthenticated: !!state.auth.token,
   };

@@ -3,9 +3,14 @@ import classes from './Select.module.css';
 
 interface SelectProps {
   label: string;
-  onChange: any;
-  value: any;
-  options: Array<any>;
+  onChange: (event: React.ChangeEvent) => void;
+  value: number;
+  options: Array<IOption>;
+}
+
+interface IOption {
+  text: number;
+  value: number;
 }
 
 const Select = (props: SelectProps) => {

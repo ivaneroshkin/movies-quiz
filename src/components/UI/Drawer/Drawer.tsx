@@ -8,7 +8,7 @@ import Backdrop from '../Backdrop/Backdrop';
 interface DrawerProps {
   isAuthenticated: boolean;
   isOpen: boolean;
-  onClose: any;
+  onClose: () => void;
 }
 interface DrawerState {}
 

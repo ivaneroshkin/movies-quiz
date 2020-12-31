@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component, Dispatch } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { logout } from '../../store/actions/auth';
 
 interface LogoutProps {
-  logout: any;
+  logout: () => void;
 }
 
 class Logout extends Component<LogoutProps> {
@@ -17,7 +17,7 @@ class Logout extends Component<LogoutProps> {
   }
 }
 
-function mapDispatchToProps(dispatch: any) {
+function mapDispatchToProps(dispatch: Dispatch<any>) {
   return {
     logout: () => dispatch(logout()),
   };

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Dispatch } from 'react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchQuizzes } from '../../store/actions/quiz';
@@ -6,12 +6,13 @@ import { fetchQuizzes } from '../../store/actions/quiz';
 import classes from './QuizList.module.css';
 import Button from '../../components/UI/Button/Button';
 import Loader from '../../components/UI/Loader/Loader';
+import { IRootState } from '../../App';
 
 interface QuizListProps {
   loading: boolean;
   quizzes: Array<Link>;
   linksList: Array<Link>;
-  fetchQuizzes: any;
+  fetchQuizzes: () => void;
 }
 interface QuizListState {
   loading: boolean;
@@ -61,7 +62,7 @@ class QuizList extends Component<QuizListProps, QuizListState> {
   }
 }
 
-function mapStateToProps(state: any) {
+function mapStateToProps(state: IRootState) {
   return {
     quizzes: state.quiz.quizzes,
     loading: state.quiz.loading,
@@ -69,7 +70,7 @@ function mapStateToProps(state: any) {
   };
 }
 
-function mapDispatchToProps(dispatch: any) {
+function mapDispatchToProps(dispatch: Dispatch<any>) {
   return {
     fetchQuizzes: () => dispatch(fetchQuizzes()),
   };

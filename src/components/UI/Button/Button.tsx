@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import classes from './Button.module.css';
 
 interface ButtonProps {
   type: string;
   onClick?: any;
-  children: string | any;
+  children: string | ReactNode;
   isDisabled?: boolean;
 }
 

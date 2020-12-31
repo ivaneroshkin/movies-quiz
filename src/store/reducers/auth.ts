@@ -4,7 +4,12 @@ const initialState = {
   token: null,
 };
 
-export default function authReducer(state = initialState, action: any) {
+interface IAuthAction {
+  type: string;
+  token: string;
+}
+
+export default function authReducer(state = initialState, action: IAuthAction) {
   switch (action.type) {
     case AUTH_SUCCESS:
       return {

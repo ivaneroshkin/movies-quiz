@@ -5,9 +5,30 @@ import classes from './FinishedQuiz.module.css';
 import Button from '../UI/Button/Button';
 
 interface FinishedQuizProps {
-  onRetry: any;
+  onRetry: () => void;
   results: any;
-  quiz: any;
+  quiz: IQuiz;
+}
+
+export interface IQuiz {
+  activeQuistion: number;
+  answerState: null;
+  isFinished: boolean;
+  quiz: Array<ISingleQuiz>;
+  results: {};
+  title: string;
+}
+
+interface ISingleQuiz {
+  id: number;
+  question: string;
+  rightAnswerId: number;
+  answers: Array<ISingleAnswer>;
+}
+
+interface ISingleAnswer {
+  id: number;
+  text: string;
 }
 
 const FinishedQuiz = (props: FinishedQuizProps) => {

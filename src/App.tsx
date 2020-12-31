@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Dispatch } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 
@@ -13,7 +13,13 @@ import Logout from './components/Logout/Logout';
 
 interface AppProps {
   isAuthenticated: boolean;
-  autoLogin: any;
+  autoLogin: () => void;
+}
+
+export interface IRootState {
+  auth: any;
+  create: any;
+  quiz: any;
 }
 class App extends Component<AppProps> {
   componentDidMount() {
@@ -46,13 +52,13 @@ class App extends Component<AppProps> {
   }
 }
 
-function mapStateToProps(state: any) {
+function mapStateToProps(state: IRootState) {
   return {
     isAuthenticated: !!state.auth.token,
   };
 }
 
-function mapDispatchToProps(dispatch: any) {
+function mapDispatchToProps(dispatch: Dispatch<any>) {
   return {
     autoLogin: () => dispatch(autoLogin()),
   };

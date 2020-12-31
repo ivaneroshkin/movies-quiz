@@ -1,4 +1,4 @@
-import React, { ChangeEvent, Component, FormEvent } from 'react';
+import React, { ChangeEvent, Component, Dispatch, FormEvent } from 'react';
 import { connect } from 'react-redux';
 import classes from './QuizCreator.module.css';
 
@@ -18,11 +18,12 @@ import {
 import Button from '../../components/UI/Button/Button';
 import Input from '../../components/UI/Input/Input';
 import Select from '../../components/UI/Select/Select';
+import { IRootState } from '../../App';
 
 interface QuizCreatorProps {
-  quiz: any; // TODO: fix all any types
-  createQuizQuestion: any;
-  finishCreateQuiz: any;
+  quiz: [];
+  createQuizQuestion: (item: object) => void;
+  finishCreateQuiz: () => void;
 }
 interface QuizCreatorState {
   isFormValid: boolean;
@@ -74,8 +75,6 @@ class QuizCreator extends Component<QuizCreatorProps, QuizCreatorState> {
 
   addQuestionHandler = (event: Event) => {
     event.preventDefault();
-    // const quiz: Array<any> = this.state.quiz.concat();
-    // const index = quiz.length + 1;
 
     const {
       question,
@@ -85,7 +84,7 @@ class QuizCreator extends Component<QuizCreatorProps, QuizCreatorState> {
       option4,
     } = this.state.formControls;
 
-    const questionItem = {
+    const questionItem: object = {
       question: question.value,
       id: this.props.quiz.length + 1,
       rightAnswerId: this.state.rightAnswerId,
@@ -97,7 +96,6 @@ class QuizCreator extends Component<QuizCreatorProps, QuizCreatorState> {
       ],
     };
 
-    // quiz.push(questionItem);
     this.props.createQuizQuestion(questionItem);
 
     this.setState({
@@ -109,11 +107,6 @@ class QuizCreator extends Component<QuizCreatorProps, QuizCreatorState> {
 
   createQuizHandler = (event: Event) => {
     event.preventDefault();
-
-    // axios.post(
-    //   'https://movies-quiz-555.firebaseio.com/quizzes.json',
-    //   this.state.quiz
-    // );
     this.setState({
       isFormValid: false,
       rightAnswerId: 1,
@@ -216,15 +209,15 @@ class QuizCreator extends Component<QuizCreatorProps, QuizCreatorState> {
   }
 }
 
-function mapStateToProps(state: any) {
+function mapStateToProps(state: IRootState) {
   return {
     quiz: state.create.quiz,
   };
 }
 
-function mapDispatchToProps(dispatch: any) {
+function mapDispatchToProps(dispatch: Dispatch<any>) {
   return {
-    createQuizQuestion: (item: any) => dispatch(createQuizQuestion(item)),
+    createQuizQuestion: (item: object) => dispatch(createQuizQuestion(item)),
     finishCreateQuiz: () => dispatch(finishCreateQuiz()),
   };
 }

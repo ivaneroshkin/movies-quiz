@@ -3,8 +3,13 @@ import classes from './AnswerItem.module.css';
 
 interface AnswerItemProps {
   state: number | null;
-  answer: any;
-  onAnswerClick: any;
+  answer: Answer;
+  onAnswerClick: (answerId: number) => void;
+}
+
+export interface Answer {
+  id: number;
+  text: string;
 }
 
 const AnswerItem = (props: AnswerItemProps) => {

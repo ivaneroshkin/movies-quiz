@@ -2,7 +2,7 @@ import React from 'react';
 import classes from './MenuToggle.module.css';
 
 interface MenuToggleProps {
-  onToggle: any;
+  onToggle: () => void;
   isOpen: boolean;
 }
 
