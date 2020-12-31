@@ -83,15 +83,12 @@ export function fetchQuizzesError(error: any) {
   };
 }
 
-export function fetchQuizById(quizId: any) {
+export function fetchQuizById(quizId: string) {
   return async (dispatch: any) => {
     dispatch(fetchQuizzesStart());
-
-    console.log('Quiz ID =', quizId);
-
-    // TODO: repair this hotfix
-    if (quizId > 0 && quizId < 4) {
-      const localQuiz = { ...data.quizzes[quizId - 1] };
+    if (quizId.length < 20) {
+      const quizIdAsNumber: number = Number(quizId);
+      const localQuiz = { ...data.quizzes[quizIdAsNumber - 1] };
       dispatch(fetchQuizSuccess(localQuiz));
     } else {
       try {
@@ -101,7 +98,6 @@ export function fetchQuizById(quizId: any) {
         const newQuizFromDB: QuizState = createQuiz(response.data);
         dispatch(fetchQuizSuccess(newQuizFromDB));
       } catch (error) {
-        console.log(error);
         dispatch(fetchQuizzesError(error));
       }
     }

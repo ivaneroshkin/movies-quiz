@@ -117,7 +117,7 @@ function mapStateToProps(state: IRootState) {
 
 function mapDispatchToProps(dispatch: Dispatch<any>) {
   return {
-    fetchQuizById: (id: any) => dispatch(fetchQuizById(id)),
+    fetchQuizById: (id: string) => dispatch(fetchQuizById(id)),
     quizAnswerClick: (answerId: number) => dispatch(quizAnswerClick(answerId)),
     retryQuiz: () => dispatch(retryQuiz()),
   };
