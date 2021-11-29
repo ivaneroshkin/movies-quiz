@@ -1,11 +1,14 @@
 # Movies Quiz
 
 <p align="left">
-    <a href=# alt="Language">
+    <a href=https://github.com/ivaneroshkin/movies-quiz/search?l=typescript alt="Top language">
         <img src="https://img.shields.io/github/languages/top/ivaneroshkin/movies-quiz" />
     </a>
     <a href=https://github.com/prettier/prettier alt="Code style">
         <img src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat" />
+    </a>
+    <a href=https://hub.docker.com/r/ivaneroshkin/movies-quiz alt="Docker image size">
+        <img src=https://img.shields.io/docker/image-size/ivaneroshkin/movies-quiz />
     </a>
     <a href=https://opensource.org/licenses/MIT alt="License">
         <img src="https://img.shields.io/badge/license-MIT-green" />
@@ -59,6 +62,10 @@ You can create your own quiz on the Quiz Creator page after process registration
 > login: **test@test.test** / password: **test123**
 
 Newly created quiz receive name which starts "Test quiz" with last free numbers
+
+## Containerization
+
+Also, you can [download image](https://hub.docker.com/repository/docker/ivaneroshkin/movies-quiz) from my Docker repository and run image on your local machine. Official Docker documentation about running images [here](https://docs.docker.com/).
 
 ---
 
